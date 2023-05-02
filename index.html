@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angel</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: pink;
+		}
+		h1 {
+			text-align: center;
+			font-size: 28px;
+			margin-top: 20px;
+		}
+		button {
+			display: block;
+			margin: 20px auto;
+			padding: 20px;
+			border-radius: 10px;
+			border: none;
+			font-size: 24px;
+			font-weight: bold;
+			cursor: pointer;
+			width: 100%;
+			max-width: 300px;
+			position: relative;
+			left: 0;
+			right: 0;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#sim {
+			background-color: green;
+			color: white;
+		}
+		#nao {
+			background-color: red;
+			color: white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+        #gif-container {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			z-index: 999;
+		}
+		#gif {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<h1>Vem me ver hoje?</h1>
+	<button id="sim" onclick="mostrarGif()">Sim</button>
+	<button id="nao" onmouseover="moverBotao()">Não</button>
+    <div id="gif-container">
+		<!-- <img  src="https://media.giphy.com/media/xT9DPPqwOCoxi3ASWc/giphy.gif"> -->
+        <iframe id="gif"src="https://giphy.com/embed/Rznz8HjrKQAOQ" width="360" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cat-cute-pet-Rznz8HjrKQAOQ">via GIPHY</a></p>
+	</div>
+	<script>
+		function mostrarGif() {
+			var gifContainer = document.getElementById("gif-container");
+			gifContainer.style.display = "block";
+		}
+	</script>
+	<script>
+		function moverBotao() {
+			var nao = document.getElementById("nao");
+			var novaPosicaoTop = Math.floor(Math.random() * 90) + 1; // posição aleatória entre 1 e 90% no eixo y
+			var novaPosicaoLeft = Math.floor(Math.random() * 90) + 1; // posição aleatória entre 1 e 90% no eixo x
+			nao.style.top = novaPosicaoTop + "%";
+			nao.style.left = novaPosicaoLeft + "%";
+		}
+	</script>
+</body>
+</html>
